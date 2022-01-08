@@ -24,7 +24,7 @@ def sort_integers (request):
     return HttpResponse(json.dumps(data, indent=4), content_type='application/json')
 
 def say_hi(request, name, age):
-    """Return a greeting"""
+    """Return a greeting and depending on the age it will either allow or neglect you on the website"""
     if age < 12:
         message = 'Sorry {}, you are not allowed here'.format(name)
     else:
