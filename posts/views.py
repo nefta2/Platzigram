@@ -1,30 +1,39 @@
 """Posts views."""
 
 # Django
-from django.http import HttpResponse
+from django.shortcuts import render
 
 # Utilities
 from datetime import datetime
 
 posts = [
     {
-        'name': 'Mont Blac',
-        'user': 'Yesica Cortes',
+        'title': 'Sancocho de Patio',
+        'user': {
+            'name': 'Dundunsua',
+            'picture': 'https://s2.aconvert.com/convert/p3r68-cdx67/t2xyi-rdja1.jpg',
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'picture': 'https://picsum.photos/id/237/200/200',
+        'photo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Barranquilla_-_Sancocho_de_mondongo.jpg/800px-Barranquilla_-_Sancocho_de_mondongo.jpg',
     },
     {
-        'name': 'Cocina',
-        'user': 'Sancocho',
+        'title': 'Uñas de curundú',
+        'user': {
+            'name': 'Roxana',
+            'picture': 'https://s2.aconvert.com/convert/p3r68-cdx67/tpqzr-ahug1.jpg',
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'picture': 'https://picsum.photos/id/1025/200/300',
+        'photo': 'https://www.tuenlinea.com/wp-content/uploads/2018/08/Nail-Art-inspirado-chicas-s%C3%BAper-feministas.jpg',
     },
     {
-        'name': 'Pajaros',
-        'user': 'Pescuezo Pelao',
+        'title': 'Mi rosa',
+        'user': {
+            'name': 'Nito Cortizo',
+            'picture': 'https://s2.aconvert.com/convert/p3r68-cdx67/tao3b-3bcw4.jpg',
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'picture': 'https://picsum.photos/id/1024/200/200',
-    }
+        'photo': 'https://live.staticflickr.com/43/107602069_0d6211e5f1_c.jpg',
+    },
 ]
 
 
@@ -32,11 +41,4 @@ posts = [
 
 def list_posts(request):
     """List existing posts."""
-    content= []
-    for post in posts:
-        content.append("""
-        <p><strong>{name}</strong></p>
-        <p><small>{user} - <i> {timestamp}</i></small></p>
-        <figure><img src="{picture}"/></figure>
-        """.format(**post))
-    return HttpResponse('<br>'.join(content))
+    return render(request, 'feed.html', {'posts': posts})
