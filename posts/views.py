@@ -30,7 +30,7 @@ posts = [
         'user': {
             'name': 'Nito Cortizo',
             'picture': 'https://s2.aconvert.com/convert/p3r68-cdx67/tao3b-3bcw4.jpg',
-        },
+        }, 
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
         'photo': 'https://live.staticflickr.com/43/107602069_0d6211e5f1_c.jpg',
     },
