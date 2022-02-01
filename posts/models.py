@@ -18,5 +18,5 @@ class Post(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        """Return title and username."""
+        """Return title and  username."""
         return '{} by @{}'.format(self.title, self.user.username)
