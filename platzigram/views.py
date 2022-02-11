@@ -30,3 +30,4 @@ def say_hi(request, name, age):
     else:
         message = 'Hello, {}! Welcome to Platzigram'.format(name) 
     return HttpResponse (message)
+
